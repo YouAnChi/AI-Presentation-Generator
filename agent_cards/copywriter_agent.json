@@ -1,0 +1,28 @@
+{
+  "name": "PPT Copywriter",
+  "description": "Writes engaging content and speaker notes for presentation slides.",
+  "version": "1.0.0",
+  "url": "http://localhost:10202/",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "write_content",
+      "name": "Write Slide Content",
+      "description": "Writes body text and speaker notes for a specific slide title and layout",
+      "tags": [
+        "content",
+        "copywriting"
+      ]
+    }
+  ]
+}

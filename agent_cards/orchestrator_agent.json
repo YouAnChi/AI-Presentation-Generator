@@ -1,0 +1,32 @@
+{
+  "name": "PPT Project Manager",
+  "description": "Manages the end-to-end process of generating a PowerPoint presentation based on a user topic.",
+  "version": "1.0.0",
+  "url": "http://localhost:10200/",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "generate_ppt",
+      "name": "Generate PPT",
+      "description": "Generates a complete PPT file from a topic",
+      "tags": [
+        "ppt",
+        "presentation",
+        "generator"
+      ],
+      "examples": [
+        "Create a 5-slide presentation about AI trends"
+      ]
+    }
+  ]
+}
