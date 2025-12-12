@@ -12,19 +12,21 @@
 
 1.  **项目经理 (Project Manager / Orchestrator)**
     *   **角色**：总指挥、用户接口。
-    *   **职责**：接收用户指令，维护项目上下文（风格、页数、受众），协调各个专员的工作，并监控进度。
+    *   **职责**：接收用户指令，维护项目上下文。
+    *   **智能决策**：引入 **LLM 动态规划**能力，根据当前任务阶段自动生成搜索指令，通过 MCP 动态发现并调用最合适的下游 Agent，而非硬编码调用链路。
 2.  **大纲策划师 (Outliner Agent)**
     *   **角色**：逻辑大脑。
     *   **职责**：将模糊的需求拆解为结构化的 PPT 大纲（每页标题、核心论点）。
-3.  **金牌文案 (Copywriter Agent)**
-    *   **角色**：内容创作者。
-    *   **职责**：根据大纲标题，撰写详细的正文内容、演讲备注 (Speaker Notes)。
-4.  **视觉设计师 (Visual Designer Agent)**
-    *   **角色**：美术指导。
-    *   **职责**：根据页面内容生成配图提示词 (Prompt) 并调用绘图模型生成图片。
-5.  **排版工程师 (Builder Agent)**
-    *   **角色**：技术执行。
-    *   **职责**：使用 `python-pptx` 将文案和图片组装成最终的 `.pptx` 文件。
+*   **Copywriter (文案撰写者)**: 为每一页 PPT 生成详细的标题、正文内容、演讲备注以及配图提示词。
+*   **Image Generator (图像生成者)**: 根据提示词生成配图（目前支持本地模拟生成，可扩展接入 DALL-E 等）。
+*   **Builder (构建者)**: 将生成的文本内容和结构转换为实际的 PPT 文件（如 .pptx）。
+
+## 核心功能
+
+*   **智能大纲生成**: 自动规划演示文稿的章节和逻辑结构。
+*   **内容自动撰写**: 利用大语言模型（LLM）生成高质量的幻灯片内容。
+*   **自动配图**: 根据内容自动生成相关图片并插入到 PPT 中。
+*   **演讲备注生成**: 自动生成演讲者备注，辅助演示。
 
 所有智能体通过 **MCP Server** 进行注册和发现，实现了高度的解耦和可扩展性。
 
@@ -86,6 +88,8 @@ ai_ppt_generator/
     python src/ai_ppt/agents/outliner.py --host localhost --port 10201
     # 启动 Copywriter（文案撰写）
     python src/ai_ppt/agents/copywriter.py --host localhost --port 10202
+    # 启动 Image Generator（图像生成）
+    python src/ai_ppt/agents/image_generator.py --host localhost --port 10204
     # 启动 Builder（排版工程师）
     python src/ai_ppt/agents/builder.py --host localhost --port 10203
     ```

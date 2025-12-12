@@ -1,6 +1,6 @@
 {
   "name": "PPT Copywriter",
-  "description": "Writes engaging content and speaker notes for presentation slides.",
+  "description": "专职负责为演示文稿撰写引人入胜的正文内容和详细的演讲者备注。",
   "version": "1.0.0",
   "url": "http://localhost:10202/",
   "capabilities": {
@@ -18,10 +18,12 @@
     {
       "id": "write_content",
       "name": "Write Slide Content",
-      "description": "Writes body text and speaker notes for a specific slide title and layout",
+      "description": "根据给定的标题和布局，为单张幻灯片撰写正文文本和演讲备注",
       "tags": [
         "content",
-        "copywriting"
+        "copywriting",
+        "文案",
+        "写作"
       ]
     }
   ]

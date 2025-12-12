@@ -1,23 +1,34 @@
+"""公共数据模型：描述 PPT 生成过程中的核心结构。
+
+包含：
+- `SlideContent`：单页幻灯片的内容结构；
+- `PresentationOutline`：整份演示文稿的大纲结构；
+- `PPTGenerationRequest`：生成请求的参数结构。
+"""
+
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
+
 class SlideContent(BaseModel):
-    """Represents the content of a single PPT slide."""
-    page_number: int = Field(description="The page number of the slide")
-    title: str = Field(description="The title of the slide")
-    layout: str = Field(description="The layout of the slide (e.g., 'Title Slide', 'Title and Content')", default="Title and Content")
-    body_text: Optional[str] = Field(description="The main content/bullet points of the slide", default=None)
-    speaker_notes: Optional[str] = Field(description="Notes for the speaker", default=None)
-    image_prompt: Optional[str] = Field(description="Prompt to generate an image for this slide", default=None)
-    image_path: Optional[str] = Field(description="Local path to the generated image", default=None)
+    """单页幻灯片的内容结构。"""
+    page_number: int = Field(description="页码")
+    title: str = Field(description="幻灯片标题")
+    layout: str = Field(description="幻灯片版式（如 'Title Slide'、'Title and Content'）", default="Title and Content")
+    body_text: Optional[str] = Field(description="正文内容/要点列表", default=None)
+    speaker_notes: Optional[str] = Field(description="演讲者备注", default=None)
+    image_prompt: Optional[str] = Field(description="用于生成图片的提示词", default=None)
+    image_path: Optional[str] = Field(description="生成图片的本地路径", default=None)
+
 
 class PresentationOutline(BaseModel):
-    """Represents the complete outline of a presentation."""
-    topic: str = Field(description="The main topic of the presentation")
-    slides: List[SlideContent] = Field(description="List of slides in the presentation")
+    """整份演示文稿的大纲结构。"""
+    topic: str = Field(description="演示文稿的主题")
+    slides: List[SlideContent] = Field(description="幻灯片列表")
+
 
 class PPTGenerationRequest(BaseModel):
-    """Request object for generating a PPT."""
+    """PPT 生成请求参数结构。"""
     topic: str
     num_slides: int = 5
     style: str = "professional"

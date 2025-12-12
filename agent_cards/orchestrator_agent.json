@@ -1,6 +1,6 @@
 {
   "name": "PPT Project Manager",
-  "description": "Manages the end-to-end process of generating a PowerPoint presentation based on a user topic.",
+  "description": "管理从用户主题到 PowerPoint 演示文稿生成的端到端流程。",
   "version": "1.0.0",
   "url": "http://localhost:10200/",
   "capabilities": {
@@ -18,14 +18,14 @@
     {
       "id": "generate_ppt",
       "name": "Generate PPT",
-      "description": "Generates a complete PPT file from a topic",
+      "description": "根据主题生成完整的 PPT 文件",
       "tags": [
         "ppt",
         "presentation",
         "generator"
       ],
       "examples": [
-        "Create a 5-slide presentation about AI trends"
+        "创建一个关于 AI 趋势的 5 页演示文稿"
       ]
     }
   ]

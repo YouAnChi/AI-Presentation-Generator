@@ -1,6 +1,6 @@
 {
   "name": "PPT Outliner",
-  "description": "Creates structured outlines for presentations.",
+  "description": "专职负责 PPT 大纲规划。根据用户主题生成结构化的演示文稿大纲（包含每页标题和布局）。不负责写正文，只负责整体结构设计。",
   "version": "1.0.0",
   "url": "http://localhost:10201/",
   "capabilities": {
@@ -18,10 +18,13 @@
     {
       "id": "create_outline",
       "name": "Create Outline",
-      "description": "Generates a structured outline (titles, layouts) for a given topic",
+      "description": "为给定主题生成结构化大纲（标题、布局），用于规划演示文稿的整体框架。",
       "tags": [
         "outline",
-        "planning"
+        "planning",
+        "structure",
+        "大纲",
+        "结构"
       ]
     }
   ]
